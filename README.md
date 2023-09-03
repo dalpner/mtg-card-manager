@@ -10,14 +10,23 @@ erDiagram
   CARD {
     uint id
     string card_name
+    uint language_id
     bool foil
     uint set_id
+    int set_number
+    int quanitiy
   }
   SET {
     uint id
     string set_name
+    int card_numbers
   }
 
-  CARD ||--|{ SET : set
+  LANGUAGE {
+    uint id
+    string language
+  }
 
+  CARD ||--|{ SET : set_id
+  CARD ||--|{ LANGUAGE : language_id
 ```
